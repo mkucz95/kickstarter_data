@@ -1,4 +1,4 @@
-# Crowdfunding Success - Chance or Strategy?
+# Crowdfunding Success  -  Chance or Strategy?
 Analysis of Kickstarter Data - what makes a project successful?
 [Click to View Project](http://htmlpreview.github.io/?https://github.com/mkucz95/kickstarter_data/blob/master/kickstarter_data.html)
 
