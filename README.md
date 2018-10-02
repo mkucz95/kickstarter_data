@@ -1,5 +1,6 @@
 # Is Success on Kickstarter Pure Chance?
 Analysis of Kickstarter Data - what makes a project successful?
+[Click to View HTML File of Project](http://htmlpreview.github.io/?github.com/mkucz95/kickstarter_data/blob/master/kickstarter_data.html)
 
 ## Installations
 - Python: v.3.6.3
