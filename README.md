@@ -31,9 +31,9 @@ The only significant take aways is that Music, Theater, Dance and Comics were th
 Otherwise, the number of backers and dollars already pledged were a good sign of success, but that does not help with our aim of finding predictors.
 
 ### ML Classifier
-Since the investigation of descriptive statistics wasn't getting me too far, I wanted to see what a supervised machine learning algorithm would use to predict success of a kickstarter project. I chose an ensemble method - Random Forest Classifier - because they have proven to be robust, easy to implement, and simple to get the feature importance. Since it is not a distance based classifier I decided not to scale and standardize the numerical features.
+Since the investigation of descriptive statistics wasn't getting me too far, I wanted to see what a supervised machine learning algorithm would use to predict success of a kickstarter project. I chose an ensemble method - Random Forest Classifier - because they have proven to be robust, easy to implement, and simple to get the feature importance. Furthermore, it mimics a decision making process someone who wants to start a Kickstarter project could go through. Since it is not a distance based classifier I decided not to scale and standardize the numerical features. After using a out of the box Random Forest Classifier (from Sci-Kit Learn), I wanted to see how good we could I could get it. I utilized GridSearch to go through some of the parameters that I thought would make the biggest difference: `n_estimators`, `max_depth`, `min_samples_split`. These parameters define how many decision trees our ensemble learner will utilize, the highest number of layers a tree can have, and how many data points we need down a certain node to split that one into two children respectively. The accuracy of this optimized Random Forest Classifier did not improve significantly - 0.64 to 0.68 accuracy score. This is quite unsatisfactory and shows that it is rather quite difficult to predict.
 
-I removed `usd_pledged_real` and `backers` features as these were going to distort our model.
+I removed `usd_pledged_real` and `backers` features for training as these were going to distort our model, and we would not have them ex ante.
 
 ## Licensing, Authors, Acknowledgements, etc.
 Data from: https://www.kaggle.com/kemical/kickstarter-projects
