@@ -19,6 +19,8 @@ I wanted to investigate to see whether there are any trends that contribute to p
 ### Data Cleaning
 There were two datasets that upon evalution turned out to be similar, except one also included data until 2018. Therefore I focused only on the 2018 dataset.
 
+### Data Analysis
 
+### ML Classifier
 
 ## Licensing, Authors, Acknowledgements, etc.
