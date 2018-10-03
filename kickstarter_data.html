@@ -11796,7 +11796,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Gather-Data">Gather Data<a class="anchor-link" href="#Gather-Data">&#182;</a></h3>
+<h1 id="Understanding-Crowdfunding-Success">Understanding Crowdfunding Success<a class="anchor-link" href="#Understanding-Crowdfunding-Success">&#182;</a></h1><p>Crowdfunding is a great way to raise money for a project without taking out a loan. It has become very popular with the advent of the internet, which makes it really easy for people to show others what their idea is and why it is worthwhile. However, since a crowdfunding campaign can make or break a business idea or career it is worth the time to investigate whether there are any keys to succeeding. I have taken data from Kickstarter - the best known crowdfunding organization - to try and deduce any things one can do to increase the odds of success</p>
+<h3 id="Business-Questions">Business Questions<a class="anchor-link" href="#Business-Questions">&#182;</a></h3><ol>
+<li>What is the biggest factor (if any) in the success of a Kickstarter project</li>
+<li>What category of project would most likely succeed (Art, Photography, Tech etc.)</li>
+<li>Are there any discernible differences between successful and failed projects?</li>
+</ol>
+<h3 id="Data-Understanding">Data Understanding<a class="anchor-link" href="#Data-Understanding">&#182;</a></h3><p>The business questions above are some of the things that were set out in the beginning, but also came across during the course of data exploration. About 35% of Kickstarter projects succeed. Coming from a sample of almost 400,000 projects there is enough to go on to explore the reasons behind success.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Gather-Data">Gather Data<a class="anchor-link" href="#Gather-Data">&#182;</a></h3><p>data found on: <a href="https://www.kaggle.com/kemical/kickstarter-projects">https://www.kaggle.com/kemical/kickstarter-projects</a></p>
+
 </div>
 </div>
 </div>
@@ -12319,6 +12335,148 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[77]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Product Design       22314
+Documentary          16139
+Music                15727
+Tabletop Games       14180
+Shorts               12357
+Video Games          11830
+Food                 11493
+Film &amp; Video         10108
+Fiction               9169
+Fashion               8554
+Nonfiction            8318
+Art                   8253
+Apparel               7166
+Theater               7057
+Technology            6930
+Rock                  6758
+Children&#39;s Books      6756
+Apps                  6345
+Publishing            6018
+Webseries             5762
+Photography           5752
+Indie Rock            5657
+Narrative Film        5188
+Web                   5153
+Comics                4996
+Crafts                4664
+Country &amp; Folk        4451
+Design                4199
+Hip-Hop               3912
+Hardware              3663
+                     ...  
+Couture                275
+Blues                  268
+Animals                255
+Fabrication Tools      250
+Printing               238
+Makerspaces            238
+Movie Theaters         232
+Puzzles                231
+Bacon                  221
+Stationery             219
+Photo                  196
+Video Art              194
+Romance                190
+Knitting               181
+Workshops              164
+Crochet                162
+Translations           153
+Pet Fashion            139
+Glass                  138
+Latin                  137
+Embroidery             113
+Typography             108
+Pottery                100
+Weaving                 93
+Quilts                  81
+Residencies             69
+Letterpress             49
+Chiptune                35
+Literary Spaces         27
+Taxidermy               13
+Name: category, Length: 159, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">main_category</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[78]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Film &amp; Video    63585
+Music           51918
+Publishing      39874
+Games           35231
+Technology      32569
+Design          30070
+Art             28153
+Food            24602
+Fashion         22816
+Theater         10913
+Comics          10819
+Photography     10779
+Crafts           8809
+Journalism       4755
+Dance            3768
+Name: main_category, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -12384,41 +12542,22 @@ dtype: int64</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>looking at the features here I am thinking of dropping the following:</p>
+<ul>
+<li><code>goal</code> as it is in local currency, and it would be easier to work with <code>usd_goal_real</code></li>
+<li><code>currency</code> as we will just use the information that is already converted to USD</li>
+<li><code>usd pledged</code>: it has missing values, it is kickstarter information given about pledge amount in USD but this is already included in <code>usd_pledged_real</code></li>
+<li><code>pledged</code>: is funding raised in local currency, see explanation above</li>
+<li><code>category</code>: <code>main_category</code> retains a lot of information, and will still increase our number of features quite significantly when one hot encoded. If we were to try to one hot encode <code>category</code> the dimensionality of our data would be very high.</li>
+<li><code>ID</code>: all of the ID fields are unique, and it will not give us any information about project success.</li>
+</ul>
 
 </div>
 </div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[17]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;ID&#39;, &#39;name&#39;, &#39;category&#39;, &#39;main_category&#39;, &#39;currency&#39;, &#39;deadline&#39;,
-       &#39;goal&#39;, &#39;launched&#39;, &#39;pledged&#39;, &#39;state&#39;, &#39;backers&#39;, &#39;country&#39;,
-       &#39;usd pledged&#39;, &#39;usd_pledged_real&#39;, &#39;usd_goal_real&#39;],
-      dtype=&#39;object&#39;)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12439,7 +12578,8 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#investigate data about countries</span>
+<span class="n">df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12495,8 +12635,7 @@ Name: country, dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#assuming country N,0&quot; is a typo. Rewriting as &#39;NO&#39;</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#N,0&quot; engineering to &#39;NO&#39;</span>
 <span class="n">df</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="s1">&#39;N,0&quot;&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;NO&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -12505,18 +12644,23 @@ Name: country, dtype: int64</pre>
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cancelled&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s1">&#39;cancelled&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">state</span><span class="o">==</span> <span class="s1">&#39;suspended&#39;</span><span class="p">))</span><span class="o">*</span><span class="mi">1</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here I assume that in the <code>country</code> variable the value <code>N,0"</code> is an error, and am rewriting that as <code>NO</code>.</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I will engineer a <code>success</code> variable from the information that is already in the dataset. I am defining <code>success</code> by a project raising at least as much as their goal had stipulated. This is also how Kickstarter defines success.</p>
 
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12573,6 +12717,15 @@ Name: success, dtype: float64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I will also engineer a <code>duration</code> feature to see if the timeline of a project influences the chances at success. The dataset contains information about the date and time a project was launched, and what the fundraising deadline was. From this it is straightforward to calculate how many hours the fundraising was supposed to last.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
@@ -12586,6 +12739,15 @@ Name: success, dtype: float64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I want to one hot encode the categorical variables: <code>main_category</code> and <code>coutnry</code>. This means that each state in each feature will be represented as a binary state. For example if a project originated in the U.S. that will be denoted as a value of <code>1</code> in the dataset, and all other countries will have a value of <code>0</code> for that project. This will make it easier for any models we deal by quantifying non-numerical values.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -12603,6 +12765,15 @@ Name: success, dtype: float64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The average amount contributed to a project can give us some insight about whether we want to encourage many small contributions or a few larger ones.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13321,6 +13492,32 @@ We will use a random forest classifier as this ensemble learner is usually quite
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">RFC_model</span><span class="p">(</span><span class="n">randomState</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    INPUT:</span>
+<span class="sd">            randomState - the random state parameter for random forest classifier</span>
+<span class="sd">            X_train - training set split for the independent variables</span>
+<span class="sd">            X_test - testing set split for independent variables</span>
+<span class="sd">            y_train - training set split for the dependent variables</span>
+<span class="sd">            y_test - testing set split for the dependent variables</span>
+<span class="sd">    OUTPUT: prints accuracy of the random forest classifier</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">rand_forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+    <span class="n">rand_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">forest_test_predictions</span> <span class="o">=</span> <span class="n">rand_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">forest_test_predictions</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -13339,10 +13536,7 @@ We will use a random forest classifier as this ensemble learner is usually quite
 <div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rand_forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
-<span class="n">rand_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">forest_test_predictions</span> <span class="o">=</span> <span class="n">rand_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">forest_test_predictions</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">RFC_model</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13421,12 +13615,10 @@ We will use a random forest classifier as this ensemble learner is usually quite
 <div class="prompt input_prompt">In&nbsp;[107]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train_2</span><span class="p">,</span> <span class="n">X_test_2</span><span class="p">,</span> <span class="n">y_train_2</span><span class="p">,</span> <span class="n">y_test_2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                                                            <span class="n">df_encoded</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">rand_forest_2</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">rand_forest_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_2</span><span class="p">,</span> <span class="n">y_train_2</span><span class="p">)</span>
-<span class="n">forest_test_predictions_2</span> <span class="o">=</span> <span class="n">rand_forest_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_2</span><span class="p">,</span> <span class="n">forest_test_predictions_2</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train_2</span><span class="p">,</span> <span class="n">X_test_2</span><span class="p">,</span> <span class="n">y_train_2</span><span class="p">,</span> <span class="n">y_test_2</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> 
+    <span class="n">df_encoded</span><span class="o">.</span><span class="n">success</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">RFC_model</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">X_train_2</span><span class="p">,</span> <span class="n">X_test_2</span><span class="p">,</span> <span class="n">y_train_2</span><span class="p">,</span> <span class="n">y_test_2</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13492,12 +13684,31 @@ We will use a random forest classifier as this ensemble learner is usually quite
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">13</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_important_features</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    INPUT: </span>
+<span class="sd">        features- the column number of feature you want to print</span>
+<span class="sd">        df - the df you want to do this operation on</span>
+<span class="sd">    OUTPU: prints the name of each feature that you have chosen</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_important_features</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">13</span><span class="p">],</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13629,15 +13840,11 @@ main_category_Music
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">13</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">17</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#which features were most important in model</span>
+<span class="n">print_important_features</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">17</span><span class="p">],</span> <span class="n">df_encoded</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;success&#39;</span><span class="p">,</span> <span class="s1">&#39;usd_pledged_real&#39;</span><span class="p">,</span> <span class="s1">&#39;backers&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -13675,6 +13882,15 @@ main_category_Theater
 <h3 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion">&#182;</a></h3><p>Based on the optimized Random Forest Classifier, for which we removed the <code>usd_pledged_real</code> and <code>backers</code> features as these were going to distort our model as we want to know what can help us get more backers and funding.</p>
 <p>Based on the feature importance of the Random Forest Ensemble Learner, the most important features are <code>usd_goal_real</code>, <code>duration</code>, <code>main_category_Comics</code>, <code>main_category_Fashion</code>, <code>main_category_Music</code>, and <code>main_category_Theater</code>. This shows us that what we set as the monetary goal and how long we allow people to pledge for really does matter a lot. What is quite surprising for me, and is corroborated by the analysis of descriptive statistics is that Arts and Performance are more likely to succeed. I wonder why...</p>
 <p>Overall I would not say there is one contributing factor to success on Kickstarter. Many things contribute to it that cannot be explained through data. For example, the business idea, planning, incentives to pledge, or project design cannot be easily quantified. Maybe if we had sentiment data from the comments on each project we could combine that into a much larger and better classification model to predict our success.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Blog-Post">Blog Post<a class="anchor-link" href="#Blog-Post">&#182;</a></h5><p>Read the blog post about this work here: <a href="https://medium.com/@mati.kucz95/crowdfunding-success-chance-or-strategy-4cedf9e1266f">https://medium.com/@mati.kucz95/crowdfunding-success-chance-or-strategy-4cedf9e1266f</a></p>
 
 </div>
 </div>
